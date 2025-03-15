@@ -12,6 +12,9 @@ target_sources(picodmx INTERFACE
 )
 
 pico_generate_pio_header(picodmx
+    ${CMAKE_CURRENT_LIST_DIR}/extras/DmxInputInverted.pio
+)
+pico_generate_pio_header(picodmx
     ${CMAKE_CURRENT_LIST_DIR}/extras/DmxInput.pio
 )
 pico_generate_pio_header(picodmx

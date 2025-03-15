@@ -14,6 +14,7 @@
 
 #define DmxInput_wrap_target 4
 #define DmxInput_wrap 10
+#define DmxInput_pio_version 0
 
 static const uint16_t DmxInput_program_instructions[] = {
     0xe03d, //  0: set    x, 29                      
@@ -36,6 +37,10 @@ static const struct pio_program DmxInput_program = {
     .instructions = DmxInput_program_instructions,
     .length = 11,
     .origin = -1,
+    .pio_version = DmxInput_pio_version,
+#if PICO_PIO_VERSION > 0
+    .used_gpio_ranges = 0x0
+#endif
 };
 
 static inline pio_sm_config DmxInput_program_get_default_config(uint offset) {
